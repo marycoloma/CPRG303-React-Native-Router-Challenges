@@ -1,0 +1,9 @@
+[
+  {
+    "id": "1",
+    "title": "Getting Started",
+    "content": "Welcome to the documentation!"
+  },
+  { "id": "2", "title": "Installation", "content": "How to install the app" },
+  { "id": "3", "title": "Usage", "content": "How to use the app" }
+]
