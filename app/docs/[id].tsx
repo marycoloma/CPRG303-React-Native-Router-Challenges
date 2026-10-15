@@ -1,14 +1,16 @@
-import { View, Text, StyleSheet } from 'react-native';
-import { useLocalSearchParams } from 'expo-router';
+import { View, Text, StyleSheet } from "react-native";
+import { useLocalSearchParams } from "expo-router";
 
-const docs = [
-  { id: '1', title: 'Getting Started', content: 'Welcome to the documentation!' },
-  { id: '2', title: 'Installation', content: 'How to install the app' },
-  { id: '3', title: 'Usage', content: 'How to use the app' }
-];
+interface Doc {
+  id: string;
+  title: string;
+  content: string;
+}
+
+const docs: Doc[] = require("../../data/docs.json");
 
 export default function DocDetailScreen() {
-  const { id } = useLocalSearchParams();
+  const { id } = useLocalSearchParams<{ id: string }>();
   const doc = docs.find((d) => d.id === id);
 
   if (!doc) {
@@ -28,16 +30,7 @@ export default function DocDetailScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 20,
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 20,
-  },
-  content: {
-    fontSize: 18,
-  },
+  container: { flex: 1, padding: 20 },
+  title: { fontSize: 24, fontWeight: "bold", marginBottom: 20 },
+  content: { fontSize: 18 },
 });
