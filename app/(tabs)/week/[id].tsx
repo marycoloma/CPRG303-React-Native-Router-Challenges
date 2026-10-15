@@ -1,18 +1,21 @@
 import { View, Text, StyleSheet } from "react-native";
 import { useLocalSearchParams } from "expo-router";
-export default function WeekDetailScreen() {
-  interface Week {
-    id: number;
-    topic: string;
-  }
-  const { id } = useLocalSearchParams();
-  const weeks = require("../../../data/weeks.json");
-  const week = weeks.find((week: Week) => week.id === Number(id));
 
-  if (!week) {
+interface Project {
+  id: number;
+  topic: string;
+}
+
+const projects: Project[] = require("../../../data/weeks.json");
+
+export default function ProjectDetailScreen() {
+  const { id } = useLocalSearchParams<{ id: string }>();
+  const project = projects.find((p) => p.id === Number(id));
+
+  if (!project) {
     return (
       <View style={styles.container}>
-        <Text>Week not found</Text>
+        <Text>Project not found</Text>
       </View>
     );
   }
@@ -20,26 +23,17 @@ export default function WeekDetailScreen() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>
-        Week {week.id}: {week.topic}
+        Project {project.id}: {project.topic}
       </Text>
       <Text style={styles.content}>
-        This is the content for Week {week.id}.
+        This is the content for Project {project.id}.
       </Text>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 20,
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: "bold",
-    marginBottom: 20,
-  },
-  content: {
-    fontSize: 18,
-  },
+  container: { flex: 1, padding: 20 },
+  title: { fontSize: 24, fontWeight: "bold", marginBottom: 20 },
+  content: { fontSize: 18 },
 });
