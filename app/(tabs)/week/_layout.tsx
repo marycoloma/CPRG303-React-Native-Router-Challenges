@@ -2,11 +2,9 @@ import { Stack } from "expo-router";
 
 export default function WeekLayout() {
   return (
-    <Stack>
-      <Stack.Screen
-        name="[id]"
-        options={{ title: "Project Details", headerTitleAlign: "center" }}
-      />
+    <Stack screenOptions={{ headerTitleAlign: "center" }}>
+      <Stack.Screen name="index" options={{ title: "Projects" }} />
+      <Stack.Screen name="[id]" options={{ title: "Project Details" }} />
     </Stack>
   );
 }
