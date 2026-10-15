@@ -70,6 +70,7 @@ export default function TabLayout() {
         name="week"
         options={{
           title: "Projects",
+          href: "/week",
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="briefcase" color={color} size={size} />
           ),
