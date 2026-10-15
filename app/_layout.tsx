@@ -1,10 +1,10 @@
 import { Stack } from "expo-router";
 
-export default function RootLayout() {
+export default function WeekLayout() {
   return (
-    <Stack>
-      <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-      <Stack.Screen name="docs" options={{ headerShown: false }} />
+    <Stack screenOptions={{ headerTitleAlign: "center" }}>
+      <Stack.Screen name="index" options={{ title: "Projects" }} />
+      <Stack.Screen name="[id]" options={{ title: "Project Details" }} />
     </Stack>
   );
 }
